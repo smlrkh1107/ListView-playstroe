@@ -28,9 +28,16 @@ class AppInfo_Adpater(context:Context, resId:Int, list:ArrayList<AppInformation>
         val row = tempRow!!
 //      ★ 요기 위에 하나도 모르겠음 ★
 
+
+//        이거 Text로 ★받고 반복문으로 평점할때마다 몇번적게 하려면 더 골치아프려나 ?>???
         val gameNameTxt = row.findViewById<TextView>(R.id.gameNameTxt)
         val companyNameTxt = row.findViewById<TextView>(R.id.companyNameTxt)
-//        val s
+        val starGrade1 = row.findViewById<TextView>(R.id.starGrade1)
+        val starGrade2 = row.findViewById<TextView>(R.id.starGrade2)
+        val starGrade3 = row.findViewById<TextView>(R.id.starGrade3)
+        val starGrade4 = row.findViewById<TextView>(R.id.starGrade4)
+        val starGrade5 = row.findViewById<TextView>(R.id.starGrade5)
+
 
 
 
