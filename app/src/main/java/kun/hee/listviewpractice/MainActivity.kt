@@ -30,20 +30,17 @@ class MainActivity : AppCompatActivity() {
             val alert = AlertDialog.Builder(this)
             alert.setTitle("삭제 확인")
             alert.setMessage("정말 이 앱을 삭제하시겠습니까?")
-            alert.setPositiveButton("확인", object : DialogInterface.OnClickListener{
-                //에러뜨니까 알트엔터쓰고 함수 제작.
-                override fun onClick(dialog: DialogInterface?, which: Int) {
+            alert.setPositiveButton("확인",{dialog, which ->
+                Log.d("앱목록갯수-삭제전", appList.size.toString())
+                appList.removeAt(position)
+                Log.d("앱목록갯수-삭제후", appList.size.toString())
 
-                    //이걸 override fun 안에 옮겨주면 됨.
-                    Log.d("앱목록갯수-삭제전", appList.size.toString())
-                    appList.removeAt(position)
-                    Log.d("앱목록갯수-삭제후", appList.size.toString())
-                    mAppAdaper?.notifyDataSetChanged()
-                }
+                mAppAdaper?.notifyDataSetChanged()
             })
 
-            alert.setNegativeButton("취소", null)
 
+            alert.setNegativeButton("취소", null)
+            alert.setNeutralButton("모름", null)
             alert.show() // 삭제후는 안적고 show적기.
             return@setOnItemLongClickListener true
 
